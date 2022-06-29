@@ -42,10 +42,9 @@ async function handleComplete(todo) {
 }
 
 async function handleEdit(todo, task) {
-    // ***
-    // 1. Set the todo description to the new task text
-    // 2. Get the index of the current todo
-    // 3. Update that index of the array with the result of the update service function
+    todo.description = task;
+    const index = todos.indexOf(todo);
+    todo[index] = await updateTodo(todo);
 
     display();
 }
