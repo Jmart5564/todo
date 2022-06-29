@@ -34,10 +34,9 @@ async function handleAdd(task) {
 }
 
 async function handleComplete(todo) {
-    // *** 
-    // 1. Toggle todo complete property
-    // 2. Get the index of the current todo
-    // 3. Update that index of the array with the result of the update service function
+    todo.complete = !todo.complete;
+    const index = todos.indexOf(todo);
+    todos[index] = await updateTodo(todo);
 
     display();
 }

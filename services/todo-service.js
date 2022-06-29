@@ -19,7 +19,11 @@ export async function createTodo(todo) {
 }
 
 export async function updateTodo(todo) {
-    // update todo
+    const response = await client
+        .from('todos')
+        .update(todo)
+        .eq('id', todo.id)
+        .single();
 
     return response.data;
 }
